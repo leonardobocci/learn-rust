@@ -1,11 +1,7 @@
-``functionCall()`` vs ``macroCall!()`` : macros are special funcs
-
-``rustc filename.rs`` compiles code. can run using ``./filename``
-
-``main() {}`` is the entrypoint of rust programs
-
-lines end with ;
-
+Starter info: \
+``rustc filename.rs`` compiles code. can run using ``./filename`` \
+``main() {}`` is the entrypoint of rust programs \
+lines end with ``;`` \
 cargo is the build system. Useful cmds: \
 ``cargo init`` to create new repo \
 ``cargo build`` to compile code and dependencies \
@@ -16,7 +12,7 @@ you can use ``cargo check`` to verify if code will be able to compile \
 Cargo can be used to install **crates**. A *library crate* is a collection of source code not intended for use on its own, while a *binary crate* is an executable that was pre-compiled. \
 Add crates in the dependencies section of Cargo.toml \
 The versioning allows for automatic patch updates using ``cargo update``, but does not cross minor or major releases automatically. \
-crates.io is the Pypi equivalent distribution index. \
+crates.io is the Pypi equivalent distribution index.
 
 To import libraries: \
 ``use std::io;`` \
@@ -24,7 +20,7 @@ where std is the parent library and io is the library scope to import. \
 You can also import *traits*. Traits are a way to implement common behaviours (interfaces) for different types.
 ``use library::trait;``
 
-Variables: \
+Variables:
 ```rust
 let mut mutableVariableName = 1 //mutable with initialization;
 let constantVariableName = 10 //immutable with initizalization;
@@ -39,8 +35,9 @@ References: \
 The ampersand (&) character is used to call a reference. \
 References are similar to variables, but don't load the whole contents of the reference into memory every time they are referenced in code.
 
-Function calls vs method calls: \
-``::myfunc()`` vs ``::myfunc().mymethod()``
+Functions and macros: \
+``functionCall()`` vs ``macroCall!()`` : macros are special functions.
+``::myfunc()`` vs ``::myfunc().mymethod()``: types can have methods.
 
 Enums: \
 Enums are a type that can hold multiple states (each state is a variant). \
@@ -50,7 +47,7 @@ Each variant is connected with the matched behaviour using the ``=>`` character.
 A special Enum type is: ``Result``, which holds the success state (Ok or Err). Ok holds the result of the succesfull operation, while Err holds extra information about the exception. \
 The ``.expect()`` method allows to catch **exceptions** and display the error message passed to ``.expect(MSG)`` \
 A better way to handle exceptions is the ``match`` keyword. \
-An enum with two variants (Ok and Err) can be matched with different behaviours. \
+An enum with two variants (Ok and Err) can be matched with different behaviours.
 ```rust
 let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
@@ -63,10 +60,11 @@ let guess: u32 = match guess.trim().parse() {
 // the _ character catches all exception types
 ```
 Another special Enum is the Ordering type, with Less, Greater and Equal variants. \
-It can be obtained with the ``cmp`` comparison method that takes a reference (with ampersand &) and compares it against the object that called the method. \
+It can be obtained with the ``cmp`` comparison method that takes a reference (with ampersand &) and compares it against the object that called the method.
 
 Type conversions: \
-It's possible to convert a type into another using the ``.parse()`` method. Here, *shadow* the name of an existing variable (re-initialize it, providing new type) you want to convert and pass the type in the initialization:
+It's possible to convert a type into another using the ``.parse()`` method. \
+Here, *shadow* the name of an existing variable (re-initialize it, providing new type) you want to convert and pass the type in the initialization:
 ```rust
 let my_var = "10";
 let my_var: i32 = my_var.parse().expect("Received unparsable content");
@@ -78,9 +76,9 @@ let my_var = my_var.parse::<i32>().expect("Received unparsable content");
 ```
 
 Loops: \
-The ``loop {}`` keyword creates an infinite loop. \
+The ``loop {}`` keyword creates an infinite loop.
 
-Formatted strings: \
+Formatted strings:
 ```rust
 println!("placeholder {} < placeholder {}", 1, 2); //many placeholders
 let a = 10;
@@ -88,9 +86,9 @@ println!("{a} > 5"); //variable reference
 ```
 
 Comments:
-// inline comment
+``// inline comment``
 
-Code formatting: \
+Code formatting:
 ``cargo fmt``
 
 
